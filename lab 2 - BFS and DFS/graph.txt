@@ -1,7 +1,7 @@
 A B C
 B D E
 C F G
-D
+D F
 E
 F
 G

@@ -228,6 +228,27 @@ def dfs(graph, start_node):
                 stack.push(neighbor)
 ```
 
+#### Built-in Stack Implementation
+
+Using Python's built-in list as a stack.
+
+```python
+# dfs_builtin.py
+def dfs(graph, start_node):
+    visited = set()
+    stack = [start_node]  # Using list as a stack
+
+    while stack:
+        current_node = stack.pop()
+        if current_node not in visited:
+            print(current_node, end=" ")
+            visited.add(current_node)
+        # Adding neighbors to the stack
+        for neighbor in graph.get(current_node, []):
+            if neighbor not in visited:
+                stack.append(neighbor)
+```
+
 #### ASCII Diagram of DFS Tree
 
 ```
@@ -271,6 +292,29 @@ def bfs(graph, start_node):
                 visited.add(neighbor)
 ```
 
+#### Built-in Queue Implementation
+
+Using Python's `collections.deque` as a queue.
+
+```python
+# bfs_builtin.py
+from collections import deque
+
+def bfs(graph, start_node):
+    visited = set()
+    queue = deque([start_node])  # Using deque as a queue
+    visited.add(start_node)
+
+    while queue:
+        current_node = queue.popleft()
+        print(current_node, end=" ")
+
+        for neighbor in graph.get(current_node, []):
+            if neighbor not in visited:
+                queue.append(neighbor)
+                visited.add(neighbor)
+```
+
 #### ASCII Diagram of BFS Tree
 
 ```
@@ -283,6 +327,8 @@ Graph:
 
 BFS Traversal (Starting from A): A -> B -> C -> D -> E -> F
 ```
+
+---
 
 ---
 

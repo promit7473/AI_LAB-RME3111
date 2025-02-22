@@ -1,12 +1,13 @@
 # queue.py
+
 class Queue():
-    def __init__(self, k):
-        self.k = k
-        self.queue = [None] * k
+    def __init__(self, size):
+        self.size = size
+        self.queue = [None] * size
         self.head = self.tail = -1
 
     def enqueue(self, data):
-        if (self.tail == self.k - 1):  # Queue is full
+        if (self.tail == self.size - 1):  # Queue is full
             print("The queue is full")
         else:
             if self.head == -1:  # Set head to 0 when enqueuing the first element
@@ -25,15 +26,16 @@ class Queue():
                 self.head = self.tail = -1
             return temp  # Return the dequeued value
 
-    def printQueue(self):
-        if self.head == -1:
-            print("The queue is empty")
-        else:
-            for i in range(self.head, self.tail + 1):
-                print(self.queue[i], end=" ")
-            print()
+    # def printQueue(self):
+    #     if self.head == -1:
+    #         print("The queue is empty")
+    #     else:
+    #         for i in range(self.head, self.tail + 1):
+    #             print(self.queue[i], end=" ")
+    #         print()
 
 custom_queue = Queue(5)
+
 custom_queue.enqueue(5)
 custom_queue.enqueue(6)
 custom_queue.enqueue(7)
@@ -41,4 +43,4 @@ custom_queue.enqueue(8)
 
 custom_queue.dequeue()
 
-custom_queue.printQueue()
+print(custom_queue.queue[custom_queue.head:custom_queue.tail+1])

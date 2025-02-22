@@ -33,4 +33,10 @@ sample_stack.push(4)
 sample_stack.pop()
 sample_stack.is_empty()
 
+print(sample_stack.stack)
 print(sample_stack.stack[:sample_stack.top + 1])
+
+
+#Output will be something like this
+# [1, 2, 3, 4, 0]
+# [1, 2, 3]
